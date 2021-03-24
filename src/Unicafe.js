@@ -18,12 +18,14 @@ const Display = (num) => {
     if(num.good === 0 && num.bad === 0 && num.neutral === 0){
         return(
             <div>
-                <p>No feedback given</p>
+                <p><b>Votes For Quote {num.current + 1}</b></p>
+                <p><em>No feedback given</em></p>
             </div>
         )
     } else {
     return(
         <div>
+        <p><b>Votes For Quote {num.current + 1}</b></p>
         <table>
             <tbody>
             <tr><td>Good votes: {num.good}</td></tr>
@@ -31,6 +33,7 @@ const Display = (num) => {
             <tr><td>Neutral votes: {num.neutral}</td></tr>
             </tbody>
         </table>
+        <p></p>
         </div>
     )
     }
@@ -77,24 +80,30 @@ const App = () => {
     }
 
     const Reset = () => {
-        setNeutrals({0: 0, 1: 0, 2: 0, 3: 0, 4: 0, 5: 0})
-        setBads({0: 0, 1: 0, 2: 0, 3: 0, 4: 0, 5: 0})
-        setGoods({0: 0, 1: 0, 2: 0, 3: 0, 4: 0, 5: 0})
+        const zeroNeutral = {...neutrals}
+        zeroNeutral[selected] = 0
+        setNeutrals(zeroNeutral)
+        const zeroBads = {...bads}
+        zeroBads[selected] = 0
+        setBads(zeroBads)
+        const zeroGoods = {...goods}
+        zeroGoods[selected] = 0
+        setGoods(zeroGoods)
     }
-
-    console.log('testing index: ' + selected +  ' bad value: ' + bads[selected])
-
+    console.log("index at: " + selected)
     return(
         <div>
+            <center>
             <Header text = 'Give Feedback' />
-            <blockquote><p><em><b><q>{anecdotes[selected]}</q></b></em></p></blockquote>
+            <blockquote><p><em><b><q> {anecdotes[selected]} </q></b></em></p></blockquote>
             <Button handleClick = {HandleGood} text = 'Good' />
             <Button handleClick = {HandleNeutral} text = 'Neutral' />
             <Button handleClick = {HandleBad} text = 'Bad' />
             <p><Button handleClick = {HandleNext} text = 'Next' /></p>
             <Header text = 'Statistics' />
-            <Display good = {goods[selected]} bad = {bads[selected]} neutral = {neutrals[selected]} />
+            <Display good = {goods[selected]} bad = {bads[selected]} neutral = {neutrals[selected]} current = {selected} />
             <Button handleClick = {Reset} text = 'Reset' />
+            </center>
         </div>
     )
 }
