@@ -67,16 +67,19 @@ const App = () => {
         const copyGood = {...goods}
         copyGood[selected] += 1
         setGoods(copyGood)
+        console.log('pressed good')
     }
     const HandleNeutral = () => {
         const copyNeutral = {...neutrals}
         copyNeutral[selected] += 1
         setNeutrals(copyNeutral)
+        console.log('pressed neutral')
     }
     const HandleBad = () => {
         const copyBads = {...bads}
         copyBads[selected] += 1
         setBads(copyBads)
+        console.log('pressed bad')
     }
 
     const Reset = () => {
