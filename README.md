@@ -2,8 +2,8 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-[course](https://fullstackopen.com/en/about).
-[Link]https://webappalain612.herokuapp.com/
+[Course](https://fullstackopen.com/en/about).
+[Link](https://webappalain612.herokuapp.com/)
 
 
 ## Available Scripts
