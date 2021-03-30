@@ -1,7 +1,5 @@
 import React from 'react'
  
-///////////////////////////////////////////////////////////
- 
 const Header = (course) => {
  console.log(course)
  return(

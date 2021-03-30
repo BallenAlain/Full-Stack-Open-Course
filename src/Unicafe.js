@@ -41,14 +41,30 @@ const Display = (num) => {
 
 const App = () => {
 
-    const anecdotes = [
-        'If it hurts, do it more often.',
-        'Adding manpower to a late software project makes it later!',
-        'The first 90 percent of the code accounts for the first 90 percent of the development time...  The remaining 10 percent of the code accounts for the other 90 percent of the development time.',
-        'Any fool can write code that a computer can understand. Good programmers write code that humans can understand.',
-        'Premature optimization is the root of all evil.',
-        'Debugging is twice as hard as writing the code in the first place. Therefore, if you write the code as cleverly as possible, you are, by definition, not smart enough to debug it.'
-    ]
+    const anecdotes = [{
+        text: 'If it hurts, do it more often.',
+        id: 1
+    },
+    {
+        text: 'Adding manpower to a late software project makes it later!',
+        id: 2
+    },
+    {
+        text: 'The first 90 percent of the code accounts for the first 90 percent of the development time...  The remaining 10 percent of the code accounts for the other 90 percent of the development time.',
+        id: 3
+    },
+    {
+        text: 'Any fool can write code that a computer can understand. Good programmers write code that humans can understand.',
+        id: 4
+    },
+    {
+        text: 'Premature optimization is the root of all evil.',
+        id: 5
+    },
+    {
+        text: 'Debugging is twice as hard as writing the code in the first place. Therefore, if you write the code as cleverly as possible, you are, by definition, not smart enough to debug it.',
+        id: 6
+    }]
 
     const [goods, setGoods] = useState({0: 0, 1: 0, 2: 0, 3: 0, 4: 0, 5: 0})
     const [bads, setBads] = useState({0: 0, 1: 0, 2: 0, 3: 0, 4: 0, 5: 0})
@@ -96,9 +112,9 @@ const App = () => {
     console.log("index at: " + selected)
     return(
         <div>
-            <center>
+        
             <Header text = 'Give Feedback' />
-            <blockquote><p><em><b><q> {anecdotes[selected]} </q></b></em></p></blockquote>
+            <blockquote><p><em><b><q> {anecdotes[selected].text} </q></b></em></p></blockquote>
             <Button handleClick = {HandleGood} text = 'Good' />
             <Button handleClick = {HandleNeutral} text = 'Neutral' />
             <Button handleClick = {HandleBad} text = 'Bad' />
@@ -106,7 +122,7 @@ const App = () => {
             <Header text = 'Statistics' />
             <Display good = {goods[selected]} bad = {bads[selected]} neutral = {neutrals[selected]} current = {selected} />
             <Button handleClick = {Reset} text = 'Reset' />
-            </center>
+
         </div>
     )
 }
